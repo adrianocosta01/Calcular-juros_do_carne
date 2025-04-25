@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <form>
+            <h1>Simulador de Juros do Carnê</h1>
+            
+            <div id="perguntas">
+                <h2>Tem entrada?</h2>
+
+                <div class="pergunta">
+                    <input type="radio" name="tem_entrada" id="tem_entrada">
+                    <label for="tem_entrada">Sim</label>
+
+                    <input type="radio" name="tem_entrada" id="nao_tem_entrada" checked>
+                    <label for="nao_tem_entrada">Não</label>
+                </div>
+                
+                <hr>
+
+                <h2>Tem parcelamento?</h2>
+
+                <div class="pergunta">
+                    
+                    <input type="radio" name="tem_parcelamento" id="tem_parcelamento">
+                    <label for="tem_parcelamento">Sim</label>
+
+                    <input type="radio" name="tem_parcelamento" id="nao_tem_parcelamento" checked>
+                    <label for="nao_tem_parcelamento">Não</label>
+                </div>
+            </div>
+
+            <hr>
+            <div id="entrada">
+                <h2>Entrada</h2>
+                
+                <div class="data_de_vencimento">
+                    <label for="vencimento_da_entrada">Data do vencimento:</label>
+                    <input type="date" name="" id="vencimento_da_entrada">
+                </div>
+                
+                <div class="valor_das_parcelas">
+                    <label for="valor_da_entrada">Valor da Entrada (R$):</label>
+                    <input type="number" step="0.01" id="valor_da_entrada">
+                </div>
+                <hr>
+            </div>
+
+            <div id="parcelamento">
+                <h2>Parcelamento</h2>
+                
+                <div class="data_de_vencimento">
+                    <label for="vencimento_do_parcelamento">Data do vencimento:</label>
+                    <input type="date" name="" id="vencimento_do_parcelamento">
+                </div>
+                
+                <div class="quantidade_de_parcelas">
+                    <label for="quantidade_de_parcelas">Quantidade de Parcelas:</label>
+                    <input type="number" name="" id="quantidade_de_parcelas">
+                </div>
+                
+                <div class="valor_das_parcelas">
+                    <label for="valor_das_parcelas">Valor das Parcelas (R$):</label>
+                    <input type="number" name="" id="valor_das_parcelas">
+                </div>
+            </div>
+            
+
+        </form>
+    </main>
+</body>
+</html>
