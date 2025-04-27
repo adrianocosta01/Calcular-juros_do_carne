@@ -38,8 +38,17 @@ nao_tem_parcelamento.addEventListener('change', () => {
 })
 
 
+const botao_calcular = document.querySelector('#botao_calcular')
+botao_calcular.addEventListener('click', () => {
+    if (tem_entrada.checked) {
+        const data_do_vencimento_entrada = document.querySelector('#vencimento_da_entrada')
+        const valor_da_entrada = document.querySelector('#valor_da_entrada')
+        
+        const data_atual = new Date()
 
-function tela_inicial() {
-    
-}
+        var p1 = window.document.querySelector('#teste')
+        p1.innerHTML = `Data do Vencimento da Entrada: ${data_atual}}`
+        
+    }
 
+})
