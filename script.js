@@ -37,17 +37,25 @@ nao_tem_parcelamento.addEventListener('change', () => {
     }
 })
 
+//Calculos
+let dia_do_pagamento = document.querySelector('#dia_do_pagamento')
+let botao_calcular = document.querySelector('#botao_calcular')
 
-const botao_calcular = document.querySelector('#botao_calcular')
+
+
 botao_calcular.addEventListener('click', () => {
-    if (tem_entrada.checked) {
-        const data_do_vencimento_entrada = document.querySelector('#vencimento_da_entrada')
-        const valor_da_entrada = document.querySelector('#valor_da_entrada')
-        
-        const data_atual = new Date()
 
-        var p1 = window.document.querySelector('#teste')
-        p1.innerHTML = `Data do Vencimento da Entrada: ${data_atual}}`
+    let data_do_pagamento = new Date(dia_do_pagamento.value)
+
+    if (tem_entrada.checked) {
+        let data_do_vencimento_entrada = document.querySelector('#vencimento_da_entrada')
+        let valor_da_entrada = document.querySelector('#valor_da_entrada')  
+        //teste
+
+        
+        let p1 = window.document.querySelector('#teste')
+
+        p1.innerHTML = `Data do Vencimento da Entrada: ${data_do_pagamento}}`
         
     }
 

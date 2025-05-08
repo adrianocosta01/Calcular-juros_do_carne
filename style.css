@@ -17,14 +17,11 @@ h2 {
     margin: 20px 0px 20px 0px;
     font-size: 1.4em;
     text-align: center;
-    display: block;
+
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -34,6 +31,13 @@ main {
     font-family: Arial, sans-serif;
     text-align: left;
     padding: 20px;
+    margin: 2em 0em 2em 0em;
+}
+
+div.data_do_pagamento {
+    margin: 2em 0em 2em 0em;
+    justify-content: center;
+    
 }
 
 div.pergunta {
@@ -47,13 +51,13 @@ label {
     padding: 1px;
 }
 
-.data_de_vencimento,.valor_das_parcelas,.quantidade_de_parcelas {
+.data_de_vencimento,.data_do_pagamento,.valor_das_parcelas,.quantidade_de_parcelas {
     display: flex;
     margin-bottom: 10px;
     column-gap: 10px;
 }
 
-#vencimento_da_entrada,#valor_da_entrada,#vencimento_do_parcelamento,#valor_das_parcelas {
+#vencimento_da_entrada,#dia_do_pagamento,#valor_da_entrada,#vencimento_do_parcelamento,#valor_das_parcelas {
     width: 100px;
 }
 
