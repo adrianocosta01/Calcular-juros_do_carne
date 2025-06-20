@@ -66,6 +66,7 @@ botao_calcular.addEventListener('click', () => {
         //CRIANDO AS CELULAS DO TITULO
         const colunas = [
             "PARCELAS",
+            "VENCIMENTOS",
             "DIAS DE ATRASO",
             "VALOR DAS PRESTAÇÕES",
             "VALOR DA MULTA",
@@ -87,9 +88,12 @@ botao_calcular.addEventListener('click', () => {
 
     //CALCULANDO A ENTRADA
     if (tem_entrada.checked) {
-        let data_do_vencimento_entrada = document.querySelector("#vencimento_da_entrada")
-        let vencimento_entrada = new Date(data_do_vencimento_entrada.value)
+        let data_do_vencimento_entrada = document.querySelector("#vencimento_da_entrada").value
+        let vencimento_entrada = new Date(data_do_vencimento_entrada)
         vencimento_entrada.setHours(0, 0, 0, 0)
+
+        let [ano,mes,dia] = data_do_vencimento_entrada.split('-')
+        let data_da_entrada_formatada = `${dia}/${mes}/${ano}`
 
         let pegar_valor_da_entrada = document.querySelector("#valor_da_entrada").value
         let valor_da_entrada = parseFloat(pegar_valor_da_entrada.replace(',','.'))
@@ -104,10 +108,11 @@ botao_calcular.addEventListener('click', () => {
         let juros_com_multa_entrada = (valor_da_multa_entrada + valor_do_juros_entrada)
         
         let total_devido_entrada = (valor_da_entrada + valor_da_multa_entrada + valor_do_juros_entrada)
-    
+        
 
         let colunas = [
             'ENTRADA',
+            data_da_entrada_formatada,
             dias_de_atraso_da_entrada_resultado,
             valor_da_entrada,
             valor_da_multa_entrada,
@@ -119,7 +124,7 @@ botao_calcular.addEventListener('click', () => {
         let linha_da_entrada = document.createElement("tr") 
         colunas.forEach((valor, indice) => {
             let celula = document.createElement("td")
-            celula.textContent = indice >= 2 ? formatador.format(valor) : valor
+            celula.textContent = indice >= 3 ? formatador.format(valor) : valor
             linha_da_entrada.appendChild(celula)
         })
 
@@ -128,9 +133,10 @@ botao_calcular.addEventListener('click', () => {
 
     }
 
+    //CALCULANDO O PARCELAMENTO
     if (tem_parcelamento.checked) {
-         let data_do_vencimento_parcelamento = document.querySelector('#vencimento_do_parcelamento')
-         let parcelamento_venceu_dia = new Date (data_do_vencimento_parcelamento.value)
+         let data_do_vencimento_parcelamento = document.querySelector('#vencimento_do_parcelamento').value
+         let parcelamento_venceu_dia = new Date (data_do_vencimento_parcelamento)
          parcelamento_venceu_dia.setHours(0, 0, 0, 0)
 
          let parcelas = document.querySelector("#quantidade_de_parcelas")
@@ -139,14 +145,74 @@ botao_calcular.addEventListener('click', () => {
         let valor_das_parcelas = document.querySelector("#valor_das_parcelas").value
         let pagou_parcelas = parseFloat(valor_das_parcelas.replace(',','.'))
 
+        //DADOS PARA CALCULAR OS VENCIMENTOS NO FOR
+        let [ano_inicial,mes_inicial,dia_inicial] = data_do_vencimento_parcelamento.split('-').map(Number)
+        let mes = mes_inicial - 1
 
-        let resultado_do_parcelamento = document.querySelector("#seltab")
-        for (let c = 1; c <= quantidade_de_parcelas; c++) {
-            let item = document.createElement('option')
-            let multa = (1*pagou_parcelas/100)
-            item.text = `Parcela é ${valor_das_parcelas} e a multa é ${multa}`
-            resultado_do_parcelamento.appendChild(item)
+        for(let repeticoes = 0; repeticoes < quantidade_de_parcelas; repeticoes++) {
+            let linha_do_parcelamento = document.createElement("tr")
+            //COLUNA DE PARCELAS
+            let parcelas_celula = document.createElement("td")
+            parcelas_celula.textContent = `${repeticoes + 1}° PARCELA `
+            linha_do_parcelamento.appendChild(parcelas_celula)
+
+            //COLUNA DE VENCIMENTOS
+            let vencimentos_celula = document.createElement('td')
+            
+            let ultimo_dia_do_mes_atual = new Date(ano_inicial,mes +1, 0).getDate()
+            let dia = dia_inicial <= ultimo_dia_do_mes_atual ? dia_inicial : ultimo_dia_do_mes_atual
+
+            let data = new Date(ano_inicial,mes,dia)
+            let data_formatada = data.toLocaleDateString('pt-BR')
+            vencimentos_celula.textContent = (data_formatada)
+
+            linha_do_parcelamento.appendChild(vencimentos_celula)
+            let vencimento_atual_do_parcelamento = data
+
+            mes++
+
+            if (mes > 11) {
+                mes = 0
+                ano_inicial++
+            }
+
+            //COLUNA DIAS DE ATRASO
+            let dias_de_atraso_do_parcelamento_celula = document.createElement("td")
+            let dias_de_atraso_do_parcelamento = ((pagou_dia.getTime() - vencimento_atual_do_parcelamento.getTime()) / (1000 * 60 * 60 * 24))
+            dias_de_atraso_do_parcelamento_celula.textContent = (dias_de_atraso_do_parcelamento)
+            linha_do_parcelamento.appendChild(dias_de_atraso_do_parcelamento_celula)
+
+            //COLUNA VALOR DAS PRESTAÇÕES
+            let valor_das_parcelas_celula = document.createElement("td")
+            valor_das_parcelas_celula.textContent = (formatador.format(valor_das_parcelas))
+            linha_do_parcelamento.appendChild(valor_das_parcelas_celula)
+
+            //COLUNA VALOR DA MULTA
+            let valor_da_multa_celula = document.createElement("td")
+            let valor_da_multa = (1 * pagou_parcelas / 100)
+            valor_da_multa_celula.textContent = (formatador.format(valor_da_multa))
+            linha_do_parcelamento.appendChild(valor_da_multa_celula)
+
+            //COLUNA VALOR DO JUROS
+            let valor_do_juros_celula = document.createElement("td")
+            let valor_do_juros = ((0.10 * pagou_parcelas / 100) * (dias_de_atraso_do_parcelamento))
+            valor_do_juros_celula.textContent = (formatador.format(valor_do_juros))
+            linha_do_parcelamento.appendChild(valor_do_juros_celula)
+
+            //COLUNA JUROS + MULTA
+            let juros_com_multa = document.createElement('td')
+            juros_com_multa.textContent = (formatador.format(valor_da_multa + valor_do_juros))
+            linha_do_parcelamento.appendChild(juros_com_multa)
+
+            //COLUNA TOTAL DEVIDO
+            let total_devido_celula = document.createElement('td')
+            total_devido_celula.textContent = (formatador.format(pagou_parcelas + valor_da_multa + valor_do_juros))
+            linha_do_parcelamento.appendChild(total_devido_celula)
+
+            tbody.appendChild(linha_do_parcelamento)
+            tabela.appendChild(tbody)
         }
+
     }
 
 })
