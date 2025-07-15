@@ -53,8 +53,10 @@ botao_calcular.addEventListener('click', () => {
 
     //CABEÇALHO DA TABELA APARECE OU NÃO
 
-    //SELECIONAR A TABELA E CRIAR THEAD E TBODY
+    //SELECIONAR A TABELA LIMPA OS CAMPOS E CRIA O THEAD E TBODY
+
     let tabela = document.querySelector("#tabela")
+    tabela.innerHTML = ""
     
     let thead = document.createElement("thead")
     let tbody = document.createElement("tbody")
