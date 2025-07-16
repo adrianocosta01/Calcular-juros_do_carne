@@ -8,17 +8,17 @@
 
 }
 
-/*Parte 2*/
+
 div.data_do_pagamento {
     display: none;
 }
-/**/
 
-/*Parte 3*/
+
+
 div#calcular {
     display: none;
 }
-/**/
+
 
 h1 {
     font-size: 1.5em;
@@ -26,7 +26,7 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2,h3 {
     margin: 20px 0px 20px 0px;
     font-size: 1.4em;
     text-align: center;
@@ -39,7 +39,7 @@ body {
 }
 
 main {
-    max-width: 375px;
+    min-width: 375px;
     background-color: #8d6eb448;
     font-family: Arial, sans-serif;
     text-align: left;
@@ -49,7 +49,7 @@ main {
 
 div.data_do_pagamento {
     margin: 2em 0em 2em 0em;
-    justify-content: center;
+    text-align: center;
     
 }
 
@@ -64,10 +64,9 @@ label {
     padding: 1px;
 }
 
-.data_de_vencimento,.data_do_pagamento,.valor_das_parcelas,.quantidade_de_parcelas {
-    display: flex;
+.data_de_vencimento,.data_do_pagamento,.valor_das_parcelas,.quantidade_de_parcela,.vencimento_mesmo_dia,.vencimento_dias_corridos {
     margin-bottom: 10px;
-    column-gap: 10px;
+    margin-top: 10px;
 }
 
 #vencimento_da_entrada,#dia_do_pagamento,#valor_da_entrada,#vencimento_do_parcelamento,#valor_das_parcelas {
@@ -125,7 +124,7 @@ th, td {
 }
 
 #campo_da_tabela {
-    max-width: 375px;
+    min-width: 375px;
     margin: auto;
     overflow-x: auto;
 }
