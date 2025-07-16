@@ -1,41 +1,51 @@
-//EXIBIR OU NÃO A ENTRADA
+//BOTÃO CONTINUAR PARA IR PARA A PARTE 2
+let botao_continuar_para_inserir_dados = document.querySelector('#botao_ir_para_inserir_dados')
 
-const tem_entrada = document.querySelector('#tem_entrada')
-const nao_tem_entrada = document.querySelector('#nao_tem_entrada')
+botao_continuar_para_inserir_dados.addEventListener('click', () => {
 
-const entrada = document.querySelector('#entrada')
+    //EXIBIR OU NÃO A ENTRADA
+    const tem_entrada = document.querySelector('#tem_entrada')
+    const nao_tem_entrada = document.querySelector('#nao_tem_entrada')
+    
+    const entrada = document.querySelector('#entrada')
 
-//EVENTO DA ENTRADA
-tem_entrada.addEventListener('change', () => {
     if (tem_entrada.checked) {
         entrada.style.display = 'block'
     }
-})
-
-nao_tem_entrada.addEventListener('change', () => {
     if (nao_tem_entrada.checked) {
         entrada.style.display = 'none'
     }
-})
 
-//EXIBIR OU NÃO O PARCELAMENTO
-const tem_parcelamento = document.querySelector('#tem_parcelamento')
-const nao_tem_parcelamento = document.querySelector('#nao_tem_parcelamento')
+    //EXIBIR OU NÃO O PARCELAMENTO
+    const tem_parcelamento = document.querySelector('#tem_parcelamento')
+    const nao_tem_parcelamento = document.querySelector('#nao_tem_parcelamento')
 
-const parcelamento = document.querySelector('#parcelamento')
+    const parcelamento = document.querySelector('#parcelamento')
 
-//EVENTO DO PARCELAMENTO
-tem_parcelamento.addEventListener('change', () => {
     if (tem_parcelamento.checked) {
         parcelamento.style.display = 'block'
     }
-})
-
-nao_tem_parcelamento.addEventListener('change', () => {
     if (nao_tem_parcelamento.checked) {
         parcelamento.style.display = 'none'
     }
+
+    if (tem_entrada.checked || tem_parcelamento.checked) {
+        //TIRAR A PARTE 1 E COLOCAR A PARTE 2
+        let campo_da_pergunta = document.querySelector('#pergunta')
+        campo_da_pergunta.style.display = 'none'
+
+        botao_continuar_para_inserir_dados.style.display = 'none'
+
+        let botao_calcular = document.querySelector('#calcular')
+        botao_calcular.style.display = 'block'
+
+        let dia_do_pagamento = document.querySelector('.data_do_pagamento')
+        dia_do_pagamento.style.display = 'block'
+    }
+    
+
 })
+
 
 //INICIANDO OS CALCULOS
 let dia_do_pagamento = document.querySelector('#dia_do_pagamento')

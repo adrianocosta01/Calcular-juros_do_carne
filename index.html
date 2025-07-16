@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Juros</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/print.css" media="print">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -12,10 +13,12 @@
         <form>
             <h1>Simulador de Juros do Carnê</h1>
 
+            <!--Parte 2-->
             <div class="data_do_pagamento">
                 <label for="data_do_pagamento">Data do pagamento:</label>
                 <input type="date" name="" id="dia_do_pagamento">
             </div>
+            <!---->
 
             <div id="pergunta">
                 <h2>Tem entrada?</h2>
@@ -83,9 +86,16 @@
 
             </div>
 
+            <!--Mostra a Parte 2-->
+            <div id="ir_para_inserir_dados">
+                <input type="button" value="continuar" id="botao_ir_para_inserir_dados">
+            </div>
+
+            <!--Parte 2-->
             <div id="calcular">
                 <input type="button" value="calcular" id="botao_calcular">
             </div>
+            <!---->
 
             <div id="campo_da_tabela">
                 <table id="tabela">

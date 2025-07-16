@@ -8,6 +8,18 @@
 
 }
 
+/*Parte 2*/
+div.data_do_pagamento {
+    display: none;
+}
+/**/
+
+/*Parte 3*/
+div#calcular {
+    display: none;
+}
+/**/
+
 h1 {
     font-size: 1.5em;
     border-bottom: solid black;
@@ -74,12 +86,12 @@ label {
     display: none;
 }
 
-#calcular {
+#calcular,#ir_para_inserir_dados {
     text-align: center;
     margin: 20px 0px 20px 0px;
 }
 
-#botao_calcular {
+#botao_calcular,#botao_ir_para_inserir_dados {
     background-color: #8d6eb4;
     color: white;
     border: none;
