@@ -64,7 +64,7 @@ label {
     padding: 1px;
 }
 
-.data_de_vencimento,.data_do_pagamento,.valor_das_parcelas,.quantidade_de_parcela,.vencimento_mesmo_dia,.vencimento_dias_corridos {
+.data_de_vencimento,.data_do_pagamento,.valor_das_parcelas,.quantidade_de_parcela,.vencimento_mesmo_dia,.vencimento_dias_corridos,.parcelamento_inicial {
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -73,7 +73,7 @@ label {
     width: 100px;
 }
 
-#quantidade_de_parcelas {
+#quantidade_de_parcelas,#parcela_inicial {
     width: 50px;
 }
 
