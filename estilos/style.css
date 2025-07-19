@@ -13,8 +13,6 @@ div.data_do_pagamento {
     display: none;
 }
 
-
-
 div#calcular {
     display: none;
 }
@@ -102,13 +100,9 @@ label {
 
 /*CSS DA TABELA*/
 
-header > h1 {
-    text-align: center;
-}
-
 table {
     border-collapse: collapse;
-    margin-bottom: 1em;
+
 }
 
 th, td {
@@ -119,8 +113,8 @@ th, td {
     font-size: 0.8em;
 }
 
-#linha-total {
-    border: none;
+tfoot {
+    font-weight: bold;
 }
 
 #campo_da_tabela {

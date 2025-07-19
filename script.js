@@ -74,7 +74,7 @@ let formatador = new Intl.NumberFormat('pt-BR', {
 
         let tabela = document.querySelector("#tabela")
         tabela.innerHTML = ""
-        
+
         let thead = document.createElement("thead")
         let tbody = document.createElement("tbody")
         let tfoot = document.createElement("tfoot")
@@ -95,6 +95,25 @@ let formatador = new Intl.NumberFormat('pt-BR', {
             colunas.forEach(valores_coluna => {
                 let th = document.createElement("th")
                 th.textContent = valores_coluna
+
+                if (valores_coluna === "PARCELAS") {
+                    th.classList.add("borda_superior_esquerda")
+                } else if (valores_coluna === "TOTAL DEVIDO") {
+                    th.classList.add("borda_superior_direita")
+                }
+
+                const colunas_com_bordas = [
+                    "VENCIMENTOS",
+                    "DIAS DE ATRASO",
+                    "VALOR DAS PRESTAÇÕES",
+                    "VALOR DA MULTA",
+                    "VALOR DO JUROS",
+                    "JUROS + MULTA",]
+
+                if (colunas_com_bordas.includes(valores_coluna)) {
+                    th.classList.add("borda_superior_cima")
+                }
+
                 linha_cabecalho.appendChild(th)
             })
 
@@ -417,30 +436,37 @@ let formatador = new Intl.NumberFormat('pt-BR', {
                 let total = document.createElement('td')
                 total.colSpan = 2
                 total.textContent = 'TOTAL'
+                total.classList.add("borda_inferior_esquerda")
                 linha_do_total.appendChild(total)
 
                 let total_dias = document.createElement('td')
                 total_dias.textContent = (dias_de_atraso_total)
+                total_dias.classList.add("borda_inferior_baixo")
                 linha_do_total.appendChild(total_dias)
 
                 let prestacoes_total = document.createElement('td')
                 prestacoes_total.textContent = (formatador.format(valor_das_prestacoes_total))
+                prestacoes_total.classList.add("borda_inferior_baixo")
                 linha_do_total.appendChild(prestacoes_total)
 
                 let multa_total = document.createElement('td')
                 multa_total.textContent = (formatador.format(valor_da_multa_total))
+                multa_total.classList.add("borda_inferior_baixo")
                 linha_do_total.appendChild(multa_total)
 
                 let juros_total = document.createElement('td')
                 juros_total.textContent = (formatador.format(valor_do_juros_total))
+                juros_total.classList.add("borda_inferior_baixo")
                 linha_do_total.appendChild(juros_total)
 
                 let juros_multa_total = document.createElement('td')
                 juros_multa_total.textContent = (formatador.format(juros_com_multa_total))
+                juros_multa_total.classList.add("borda_inferior_baixo")
                 linha_do_total.appendChild(juros_multa_total)
 
                 let valor_devido_total = document.createElement('td')
                 valor_devido_total.textContent = (formatador.format(total_devido))
+                valor_devido_total.classList.add("borda_inferior_direita")
                 linha_do_total.appendChild(valor_devido_total)
 
                 tfoot.appendChild(linha_do_total)
