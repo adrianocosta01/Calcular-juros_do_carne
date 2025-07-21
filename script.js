@@ -205,7 +205,7 @@ let formatador = new Intl.NumberFormat('pt-BR', {
                 
                 //COLUNA DE PARCELAS
                 let parcelas_celula = document.createElement("td")
-                parcelas_celula.textContent = `${repeticoes + 1}° PARCELA `
+                parcelas_celula.textContent = `${repeticoes + parcela_inicial_valor}° PARCELA `
                 linha_do_parcelamento.appendChild(parcelas_celula)
 
                 //COLUNA DE VENCIMENTOS
