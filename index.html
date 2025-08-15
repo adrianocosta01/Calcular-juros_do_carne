@@ -1,141 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Juros</title>
-    <link rel="stylesheet" href="estilos/style.css">
-    <link rel="stylesheet" href="estilos/print.css" media="print">
+    <link rel="stylesheet" href="estilos/pagina-inicial.css" />
+    <link rel="stylesheet" href="estilos/print.css" media="print" />
+    <link rel="stylesheet" href="estilos/modal.css">
     <script src="script.js" defer></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3755112748050666"
-     crossorigin="anonymous"></script>
-</head>
-<body>
+    <script src="script-modal.js" defer></script>
+  </head>
+  <body>
     <main>
-        <form>
-            <h1>Simulador de Juros do Carnê</h1>
+      <form>
+        <h1>Simulador de Juros do Carnê</h1>
 
-            <!--Parte 2-->
-            <div class="data_do_pagamento">
-                <label for="data_do_pagamento">Data do pagamento:</label>
-                <input type="date" name="" id="dia_do_pagamento">
-            </div>
-            <!---->
+        <!--Parte 2-->
+        <div class="data_do_pagamento">
+          <label for="data_do_pagamento">Data do pagamento:</label>
+          <input type="date" name="" id="dia_do_pagamento" />
+        </div>
+        <!---->
 
-            <!--Parte 1-->
-            <div id="pergunta">
-                <h2>Tem entrada?</h2>
+        <!--Parte 1-->
+        <div id="pergunta">
+          <h2>Tem entrada?</h2>
 
-                <div class="pergunta">
-                    <input type="radio" name="tem_entrada" id="tem_entrada">
-                    <label for="tem_entrada">Sim</label>
+          <div class="pergunta">
+            <input type="radio" name="tem_entrada" id="tem_entrada" />
+            <label for="tem_entrada">Sim</label>
 
-                    <input type="radio" name="tem_entrada" id="nao_tem_entrada" checked>
-                    <label for="nao_tem_entrada">Não</label>
-                </div>
-                
-                <hr>
+            <input type="radio" name="tem_entrada" id="nao_tem_entrada" checked />
+            <label for="nao_tem_entrada">Não</label>
+          </div>
 
-                <h2>Tem parcelamento?</h2>
+          <hr />
 
-                <div class="pergunta">
-                    
-                    <input type="radio" name="tem_parcelamento" id="tem_parcelamento">
-                    <label for="tem_parcelamento">Sim</label>
+          <h2>Tem parcelamento?</h2>
 
-                    <input type="radio" name="tem_parcelamento" id="nao_tem_parcelamento" checked>
-                    <label for="nao_tem_parcelamento">Não</label>
-                </div>
-            </div>
-            <!---->
-            <hr>
+          <div class="pergunta">
+            <input type="radio" name="tem_parcelamento" id="tem_parcelamento" />
+            <label for="tem_parcelamento">Sim</label>
 
-            <div id="entrada">
-                <h2>Entrada</h2>
-                
-                <div class="data_de_vencimento">
-                    <label for="vencimento_da_entrada">Data do vencimento:</label>
-                    <input type="date" name="" id="vencimento_da_entrada">
-                </div>
-                
-                <div class="valor_das_parcelas">
-                    <label for="valor_da_entrada">Valor da Entrada (R$):</label>
-                    <input type="number" step="0.01" id="valor_da_entrada">
-                </div>
+            <input type="radio" name="tem_parcelamento" id="nao_tem_parcelamento" checked />
+            <label for="nao_tem_parcelamento">Não</label>
+          </div>
+        </div>
+        <!---->
+        <hr />
 
-                <hr>
+        <div id="entrada">
+          <h2>Entrada</h2>
 
-            </div>
+          <div class="data_de_vencimento">
+            <label for="vencimento_da_entrada">Data do vencimento:</label>
+            <input type="date" name="" id="vencimento_da_entrada" />
+          </div>
 
-            <div id="parcelamento">
-                <h2>Parcelamento</h2>
-                
-                <div class="data_de_vencimento">
-                    <label for="vencimento_do_parcelamento">Data do vencimento:</label>
-                    <input type="date" name="" id="vencimento_do_parcelamento">
-                </div>
-                
-                <div class="quantidade_de_parcelas">
-                    <label for="quantidade_de_parcelas">Quantidade de Parcelas:</label>
-                    <input type="number" name="" id="quantidade_de_parcelas">
-                </div>
-                
-                <div class="valor_das_parcelas">
-                    <label for="valor_das_parcelas">Valor das Parcelas (R$):</label>
-                    <input type="number" name="" id="valor_das_parcelas">
-                </div>
+          <div class="valor_das_parcelas">
+            <label for="valor_da_entrada">Valor da Entrada (R$):</label>
+            <input type="number" step="0.01" id="valor_da_entrada" />
+          </div>
 
-                <div class="escolher_tipo_de_vencimento">
-                    <h3>Tipo de Parcelamento</h3>
+          <hr />
+        </div>
 
-                    <div class="vencimento_mesmo_dia">
-                        <label for="escolher_vencimento_mesmo_dia">Mesmo dia todo mês</label>
-                        <input type="radio" name="tipo_de_vencimento" id="escolher_vencimento_mesmo_dia">
-                    </div>
+        <div id="parcelamento">
+          <h2>Parcelamento</h2>
 
-                    <div class="vencimento_dias_corridos">
-                        <label for="escolher_vencimento_dias_corridos">Dias Corridos</label>
-                        <input type="radio" name="tipo_de_vencimento" id="escolher_vencimento_dias_corridos">
-                        
-                    </div>
-                    
-                    <div class="parcelamento_inicial">
-                        <label for="parcela_inical">Parcelamento começa na Parcela</label>
-                        <input type="number" name="" id="parcela_inicial" value="1">
-                        
-                    </div>
-                </div>
+          <div class="data_de_vencimento">
+            <label for="vencimento_do_parcelamento">Data do vencimento:</label>
+            <input type="date" name="" id="vencimento_do_parcelamento" />
+          </div>
 
-                <hr>
+          <div class="quantidade_de_parcelas">
+            <label for="quantidade_de_parcelas">Quantidade de Parcelas:</label>
+            <input type="number" name="" id="quantidade_de_parcelas" />
+          </div>
 
+          <div class="valor_das_parcelas">
+            <label for="valor_das_parcelas">Valor das Parcelas (R$):</label>
+            <input type="number" name="" id="valor_das_parcelas" />
+          </div>
+
+          <div class="escolher_tipo_de_vencimento">
+            <h3>Tipo de Parcelamento</h3>
+
+            <div class="vencimento_mesmo_dia">
+              <label for="escolher_vencimento_mesmo_dia">Mesmo dia todo mês</label>
+              <input type="radio" name="tipo_de_vencimento" id="escolher_vencimento_mesmo_dia" />
             </div>
 
-            <!--Mostra a Parte 2-->
-            <div id="ir_para_inserir_dados">
-                <input type="button" value="continuar" id="botao_ir_para_inserir_dados">
+            <div class="vencimento_dias_corridos">
+              <label for="escolher_vencimento_dias_corridos">Dias Corridos</label>
+              <input type="radio" name="tipo_de_vencimento" id="escolher_vencimento_dias_corridos" />
             </div>
 
-            <!--Parte 2-->
-            <div id="calcular">
-                <input type="button" value="calcular" id="botao_calcular">
+            <div class="parcelamento_inicial">
+              <label for="parcela_inical">Parcelamento começa na Parcela</label>
+              <input type="number" name="" id="parcela_inicial" value="1" />
             </div>
-            <!---->
-        </form>
-            <div id="campo_da_tabela">
-            <table id="tabela">
-            </table>
-            </div>
+          </div>
+
+          <hr />
+        </div>
+
+        <!--Mostra a Parte 2-->
+        <div id="ir_para_inserir_dados">
+          <input type="button" value="continuar" id="botao_ir_para_inserir_dados" />
+        </div>
+
+        <!--Parte 2-->
+        <div id="calcular">
+          <input type="button" value="calcular" id="botao_calcular" />
+          <input type="button" value="imprimir" id="botao_abrir_modal" />
+        </div>
+        <!---->
+      </form>
+      <div id="campo_da_tabela">
+        <table id="tabela"></table>
+      </div>
+
+
+
     </main>
 
-<!-- anuncio-carne-juros-01 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3755112748050666"
-     data-ad-slot="9846011879"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</body>
+    <!--INICIO DO MODAL-->
+    <dialog id="modal_imprimir">
+
+      <div id="campo_modal_imprimir">
+
+          <input type="button" value="X" class="btn_fechar_campo_modal_imprimir">
+
+          <div id="campo_btn_forma_de_impressao">
+              <input type="button" value="IMPRIMIR TABELA" id="btn_forma_de_impressao_tabela">
+              <input type="button" value="IMPRIMIR COMPROVANTE" id="btn_abrir_modal_comprovantes">
+          </div>
+      </div>
+
+  </dialog>
+
+  <dialog id="modal_comprovantes">
+
+      <div id="campo_modal_comprovantes">
+
+          <input type="button" value="X" class="btn_fechar_campo_modal_comprovantes">
+          
+          <div id="informacoes_adicionais">
+              
+              <div class="campos">
+                  <label for="nome_da_empresa">Nome da Empresa:</label>
+                  <input type="text" name="" id="nome_da_empresa">
+              </div>
+              <div class="campos">
+                  <label for="codigo_do_cliente">Código:</label>
+                  <input type="text" name="" id="codigo_do_cliente">
+              </div>
+              <div class="campos">
+                  <label for="nome_da_empresa">Nome do Cliente:</label>
+                  <input type="text" name="" id="nome_do_cliente">
+              </div>
+              <div class="campos">
+                  <label for="forma_de_pagamento">Forma de Pagamento:</label>
+                  <input type="text" name="" id="forma_de_pagamento">
+              </div>
+              <div class="campos">
+                  <label for="quem_recebeu">Quem Recebeu:</label>
+                  <input type="text" name="" id="quem_recebeu">
+              </div>
+              <div class="campo_btn_ir_para_imprimir_comprovante">
+                  <input type="button" value="CONTINUAR" id="btn_ir_para_imprimir_comprovante_frente_verso">
+              </div>
+          </div>
+      </div>
+      
+  </dialog>
+
+  <dialog id="modal_imprimir_comprovante_frente_verso">
+
+      <div id="campo_modal_imprimir_comprovante_frente_verso">
+
+          <input type="button" value="X" class="btn_fechar_campo_modal_imprimir_comprovante_frente_verso">
+
+          <div id="campo_btn_forma_de_impressao_comprovante_frente_verso">
+              <input type="button" value="IMPRIMIR FRENTE" id="btn_forma_de_impressao_comprovante_frente">
+              <input type="button" value="IMPRIMIR VERSO" id="btn_forma_de_impressao_comprovante_verso">
+          </div>
+      </div>
+
+  </dialog>
+
+  </body>
 </html>

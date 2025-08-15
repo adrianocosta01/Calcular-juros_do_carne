@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+.panfleto_frente {
+    page-break-inside: avoid;
+  }

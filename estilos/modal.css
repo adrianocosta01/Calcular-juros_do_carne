@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn_fechar_campo_modal_imprimir,.btn_fechar_campo_modal_comprovantes,.btn_fechar_campo_modal_imprimir_comprovante_frente_verso {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    border: 1px solid white;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+#modal_comprovantes,#modal_imprimir,#modal_imprimir_comprovante_frente_verso {
+    height: 250px;
+    width: 420px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+    margin: auto;
+
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#campo_modal_imprimir,#campo_modal_comprovantes,#campo_modal_imprimir_comprovante_frente_verso {
+    height: 230px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#campo_btn_forma_de_impressao,#campo_btn_forma_de_impressao_comprovante_frente_verso {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 130px;
+}
+
+#btn_forma_de_impressao_tabela,#btn_abrir_modal_comprovantes,#btn_forma_de_impressao_comprovante_frente,#btn_forma_de_impressao_comprovante_verso {
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#modal_comprovantes::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#informacoes_adicionais {
+    height: 150px;
+    width: 350px;
+}
+
+.campos {
+    margin: 10px;
+}
+
+.campo_btn_ir_para_imprimir_comprovante {
+    margin-top: 30px;
+    text-align: center;
+}
+
+div > .campos > label {
+    font-size: 16px;
+}
+
+#nome_da_empresa {
+    font-size: 0.8em;
+    height: 20px;
+    width: 185px;
+}
+
+#codigo_do_cliente {
+    font-size: 0.8em;
+    height: 20px;
+    width: 90px;
+}
+
+#nome_do_cliente {
+    font-size: 0.8em;
+    height: 20px;
+    width: 185px;
+}
+
+#forma_de_pagamento {
+    font-size: 0.8em;
+    height: 20px;
+    width: 150px;
+}
+
+#quem_recebeu {
+    font-size: 0.8em;
+    height: 20px;
+    width: 130px;
+}

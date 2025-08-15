@@ -1,0 +1,140 @@
+@charset   "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+span,div {
+    color: rgb(157, 14, 14);
+}
+
+#comprovantes_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.panfleto_frente {
+    height: 5.89cm;
+    width: 8.089cm;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 0.01px;
+}
+
+.campo_nome_da_empresa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.4cm;
+    width: 3.9cm;
+    border: 1px solid black;
+
+}
+
+.campo_nome_da_empresa > span {
+    border: 2px solid rgb(157, 14, 14);
+    padding: 5px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.campo_codigo_do_cliente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.4cm;
+    width: 4.05cm;
+    border: 1px solid black;
+    font-weight: bolder;
+    color: blue;
+    font-size: 1.2em;
+}
+
+.nome_do_cliente,.campo_nome_do_cliente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0.7cm;
+    width: 8.069cm;
+    border: 1px solid black;
+}
+
+.campo_nome_do_cliente {
+    color: blue;
+}
+
+.numero_da_parcela,.quantidade_de_parcelas,.valor_da_parcela,.juros_da_parcela {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    text-align: center;
+    height: 0.93cm;
+    width: 2.218cm;
+    border: 1px solid black;
+}
+
+.vencimento,.dias_de_atraso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    width: 3.6cm;
+    border: 1px solid black;
+}
+
+.campo_vencimento,.campo_dias_de_atraso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6cm;
+    border: 1px solid black;
+    color: blue;
+}
+
+.campo_numero_da_parcela,.campo_quantidade_de_parcelas,.campo_valor_da_parcela,.campo_juros_da_parcela {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0.6cm;
+    width: 2.218cm;
+    border: 1px solid black;
+    color: blue;
+}
+
+/* OCULTANDO LINHAS DESNECESSÁRIAS */
+
+.campo_nome_da_empresa,.campo_codigo_do_cliente {
+    border-top: none;
+}
+
+.campo_codigo_do_cliente,.nome_do_cliente,.campo_nome_do_cliente,.vencimento,.campo_vencimento,.dias_de_atraso,.campo_dias_de_atraso {
+    border-right: none;
+    border-bottom: none;
+}
+
+.campo_nome_da_empresa,.quantidade_de_parcelas,.campo_quantidade_de_parcelas,.juros_da_parcela,.campo_juros_da_parcela {
+    border-right: none;
+    border-bottom: none;
+}
+
+.numero_da_parcela,.campo_numero_da_parcela,.valor_da_parcela,.campo_valor_da_parcela {
+    border-right: none;
+    border-bottom: none;
+}
+
+.campo_nome_da_empresa,.nome_do_cliente,.campo_nome_do_cliente,.numero_da_parcela,.campo_numero_da_parcela,.valor_da_parcela,.campo_valor_da_parcela {
+    border-left: none;
+}

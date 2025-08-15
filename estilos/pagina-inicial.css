@@ -8,15 +8,17 @@
 
 }
 
-
 div.data_do_pagamento {
     display: none;
 }
 
-div#calcular {
+#calcular {
     display: none;
 }
 
+#botao_abrir_modal {
+    display: none;
+}
 
 h1 {
     font-size: 1.5em;
@@ -86,9 +88,10 @@ label {
 #calcular,#ir_para_inserir_dados {
     text-align: center;
     margin: 20px 0px 20px 0px;
+    
 }
 
-#botao_calcular,#botao_ir_para_inserir_dados {
+#botao_calcular,#botao_ir_para_inserir_dados,#botao_abrir_modal {
     background-color: #8d6eb4;
     color: white;
     border: none;
