@@ -49,3 +49,8 @@ thead th, tfoot td{
     border-right-color: black;
     border-bottom-color: black;
 }
+
+/*MODAIS*/
+dialog {
+    display: none;
+}
