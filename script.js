@@ -285,7 +285,7 @@ botao_calcular.addEventListener('click', () => {
         //PEGANDO DADOS DO PARCELAMENTO PARA IMPRIMIR COMPROVANTE  (Tipo de Parcelamento: Mesmo dia todo mês)
         let dados_parcelamento = {
           numero_da_parcela: repeticoes + parcela_inicial_valor,
-          quantidade_de_parcelas: quantidade_de_parcelas,
+          quantidade_de_parcelas: (quantidade_de_parcelas + parcela_inicial_valor) - 1, //CALCULO PARA IMPRIMIR COMPROVANTE DE QUANTIDADE DE PARCELAS CERTO
           vencimento: data_formatada,
           valor_da_parcela: formatador.format(pagou_parcelas),
           valor_do_juros: formatador.format(valor_da_multa + valor_do_juros),
@@ -444,7 +444,7 @@ botao_calcular.addEventListener('click', () => {
         //PEGANDO DADOS DO PARCELAMENTO PARA IMPRIMIR COMPROVANTE  (Tipo de Parcelamento: Dias Corridos) PARTE 02/02
         let dados_parcelamento = {
           numero_da_parcela: repeticoes + parcela_inicial_valor,
-          quantidade_de_parcelas: quantidade_de_parcelas,
+          quantidade_de_parcelas: (quantidade_de_parcelas + parcela_inicial_valor) - 1, //CALCULO PARA IMPRIMIR COMPROVANTE DE QUANTIDADE DE PARCELAS CERTO,
           vencimento: data_formatada,
           valor_da_parcela: formatador.format(pagou_parcelas),
           valor_do_juros: formatador.format(valor_da_multa + valor_do_juros),
@@ -501,6 +501,5 @@ botao_calcular.addEventListener('click', () => {
 
   //Salvar os dados do parcelamento no localStorage
   localStorage.setItem('imprimir_comprovantes_parcelamento', JSON.stringify(imprimir_comprovantes_parcelamento));
-
 
 });

@@ -73,6 +73,11 @@ span,div {
 
 .campo_nome_do_cliente {
     color: blue;
+    justify-content: flex-start;
+    padding: 2px;
+    font-size: 99%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .numero_da_parcela,.quantidade_de_parcelas,.valor_da_parcela,.juros_da_parcela {

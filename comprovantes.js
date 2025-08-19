@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-  //Recuperar os dados armazenados no localStorage
+  //Recuperar os dados armazenados no localStorage do arquivo script.js
   const dados_entrada = JSON.parse(localStorage.getItem('imprimir_comprovante_entrada'));
   const dados_parcelamento = JSON.parse(localStorage.getItem('imprimir_comprovantes_parcelamento'));
   const dados_comprovante_frente_fixos = JSON.parse(localStorage.getItem('dados_comprovante_frente'));
